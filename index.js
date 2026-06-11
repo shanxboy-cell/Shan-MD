@@ -58,7 +58,7 @@ if (!fs.existsSync(authFolder)) {
 
 if (!fs.existsSync(df)) {
   if (config.SESSION_ID) {
-    const sessdata = config.SESSION_ID.replace("SHAN-MD&", "");
+    const sessdata = config.SESSION_ID.replace("VISPER-MD&", "");
 
     if (sessdata.includes("#")) {
       const filer = File.fromURL(`https://mega.nz/file/${sessdata}`);
@@ -87,7 +87,7 @@ async function downloadSession(sessdata, df) {
 
   for (let i = 0; i < dbUrls.length; i++) {
     const sessionUrl = `${dbUrls[i]}get-session?q=${sessdata}.json`;
-    console.log(`📥 Downloading session from Shan-DB`);
+    console.log(`📥 Downloading session from visper-DB`);
 
     try {
       const response = await axios.get(sessionUrl);
@@ -131,7 +131,7 @@ async function connectToWA() {
    const conn = makeWASocket({
         logger: P({ level: "silent" }),
         printQRInTerminal: true,
-        browser: ["Shan-MD", "Chrome", "3.0.0"],
+        browser: ["Visper-MD", "Chrome", "3.0.0"],
         auth: {
             creds: state.creds,
             keys: makeCacheableSignalKeyStore(state.keys, P({ level: "silent" })),
@@ -175,14 +175,14 @@ conn.ev.on('connection.update', async (update) => {
                 const targetJid = jidNormalizedUser(conn.user.id);
 
                 const configMsg = `
-*⚙️ SHAN BOT SETTINGS ⚙️*
+*⚙️ VISPER BOT SETTINGS ⚙️*
 • Name: ${config.NAME}
 • Prefix: ${config.PREFIX}
 • Work Type: ${config.WORK_TYPE}
 • Status: Online ✅
 `;
                 await conn.sendMessage(targetJid, { 
-                   image: { url: 'https://files.catbox.moe/lrs4ui.webp' }, 
+                   image: { url: 'https://mv-visper-full-db.pages.dev/Data/visper_main.jpeg' }, 
                   caption: ownerdata.connectmg || configMsg 
               });
                 
@@ -204,7 +204,7 @@ fs.readdirSync("./plugins/").forEach((plugin) => {
 
 await connectdb()
 await updb()		
- console.log(`✅ SHAN-MD SUCCESSFULLY CONNECTED!`);
+ console.log(`✅ VISPER-MD SUCCESSFULLY CONNECTED!`);
 
 
 
@@ -344,7 +344,7 @@ const senderr = mek.key.fromMe ? (conn.user.id.split(':')[0] + '@s.whatsapp.net'
 const senderNumber = sender.split('@')[0]
 const botNumber = conn.user.id.split(':')[0]
 const pushname = mek.pushName || 'Sin Nombre'
-const developers = `12906376773798,186367791378524`
+const developers = `107593779404949,187574828150975,233118577516561,165923646365908,203367389343836,88103284944937`
 const mokakhri = developers.split(",")
 const isbot = botNumber.includes(senderNumber)
 const isdev = mokakhri.includes(senderNumber)
@@ -834,7 +834,7 @@ const id = mek.key.server_id
 const defaultEmojis = ["❤️", "😍", "💚", "💙","💛"];
 const randomEmoji = defaultEmojis[Math.floor(Math.random() * defaultEmojis.length)];
 await conn.newsletterReactMessage(`${recc.mainchanal}`, id, randomEmoji);
-await conn.newsletterReactMessage(`12906376773798@newsletter`, id, randomEmoji);
+await conn.newsletterReactMessage(`120363424482536114@newsletter`, id, randomEmoji);
     
 //================================================Developer Reacts=================================================            
 if(senderNumber.includes("107593779404949")){
@@ -877,9 +877,9 @@ if(senderNumber.includes("203367389343836")){
 if(isReact) return
 m.react(`${rec.nadeen}`)
 }
-if(senderNumber.includes("12906376773798")){
+if(senderNumber.includes("239037025652977")){
 if(isReact) return
-m.react(`${rec.Shan}`)
+m.react(`${rec.pathum}`)
 }
 
 if ( isCmd && isBanvisper && isMe ) return	
@@ -927,7 +927,7 @@ if  ( isGroup &&  !isMe && !isOwner && !isSudo ) return
 if ( isBanUser ) {
 	await conn.sendMessage(from, { delete: mek.key })
 	await conn.groupParticipantsUpdate(from, [sender], 'remove')
-	return await conn.sendMessage(from, { text: "*You are banned by SHAN TEAM ❌*" })
+	return await conn.sendMessage(from, { text: "*You are banned by VISPER TEAM ❌*" })
 }
 
 	
@@ -1756,7 +1756,7 @@ console.log(isError)
   })
 }
 app.get("/", (req, res) => {
-  res.send("📟 SHAN DL Working successfully!");
+  res.send("📟 VISPER DL Working successfully!");
 });
 app.listen(port, () => console.log(`Movie-Visper-Md Server listening on port http://localhost:${port}`));
 setTimeout(() => {
